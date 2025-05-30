@@ -16,12 +16,26 @@ This demo showcases the amazing capabilities of Nx with Module Federation, demon
 ### **The Problem**
 > "Module Federation development is usually slow - you have to rebuild and refresh constantly"
 
+**Traditional Module Federation Issues:**
+- ❌ No HMR across micro-frontend boundaries
+- ❌ Must refresh entire shell when remote changes  
+- ❌ Complex webpack configuration required
+- ❌ Resource intensive (multiple webpack dev servers)
+- ❌ State loss on every change
+
 ### **The Nx Solution**
-> "Nx enables true HMR across module federation boundaries"
+> "Nx enables true HMR across module federation boundaries with zero configuration"
+
+**What Nx does automatically:**
+- ✅ **Unified HMR pipeline** across all boundaries
+- ✅ **Smart resource management** (only dev what you need)
+- ✅ **Zero webpack configuration** required  
+- ✅ **Cross-boundary state preservation**
+- ✅ **Automatic module federation orchestration**
 
 ### **Setup**
 ```bash
-# Start with HMR enabled for remote1
+# One command does everything - starts shell + remote1 with HMR
 nx serve shell --devRemotes=myremote1
 ```
 
@@ -69,6 +83,10 @@ node demo-changes.js reset    # Reset everything
 - ✅ **Cross-boundary HMR** - works across module federation
 - ✅ **Selective development** - only rebuild what you're working on
 - ✅ **Zero configuration** - just works with `--devRemotes`
+- ✅ **Nx Intelligence** - automatically orchestrates entire micro-frontend dev experience
+
+### **Competitive Advantage**
+> "Other Module Federation tools require hours of webpack configuration to get basic HMR working. Nx makes it work perfectly with zero configuration."
 
 ---
 
