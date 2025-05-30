@@ -1,7 +1,25 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="myremote1">Myremote1</a></li>
-  <li><a routerLink="myremote2">Myremote2</a></li>
-  <li><a routerLink="myremote3">Myremote3</a></li>
-</ul>
-<router-outlet></router-outlet>
+<div class="shell-container">
+  <header class="shell-header">
+    <h1>🏠 Shell Application - Module Federation Demo</h1>
+    <p>Host application loading remote micro-frontends</p>
+  </header>
+  
+  <nav class="remote-menu">
+    <a routerLink="/" class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      🏠 Home
+    </a>
+    <a routerLink="myremote1" class="menu-item" routerLinkActive="active">
+      🚀 Remote 1 (HMR Demo)
+    </a>
+    <a routerLink="myremote2" class="menu-item" routerLinkActive="active">
+      ⚡ Remote 2
+    </a>
+    <a routerLink="myremote3" class="menu-item" routerLinkActive="active">
+      🎯 Remote 3
+    </a>
+  </nav>
+  
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>
