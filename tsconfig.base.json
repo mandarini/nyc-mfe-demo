@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "myremote1/Routes": [
+        "apps/angular/myremote1/src/app/remote-entry/entry.routes.ts"
+      ],
+      "myremote2/Routes": [
+        "apps/angular/myremote2/src/app/remote-entry/entry.routes.ts"
+      ],
+      "myremote3/Routes": [
+        "apps/angular/myremote3/src/app/remote-entry/entry.routes.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
