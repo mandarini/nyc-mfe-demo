@@ -14,32 +14,12 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "6839a0ad2937e5037f9432f4",
+  "nxCloudId": "6839a960886a82d45eda791e",
   "plugins": [
-    {
-      "plugin": "@nx/angular/plugin",
-      "options": {
-        "targetNamePrefix": ""
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
+    { "plugin": "@nx/angular/plugin", "options": { "targetNamePrefix": "" } },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" } },
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
     {
       "plugin": "@nx/rspack/plugin",
       "options": {
@@ -60,13 +40,7 @@
     "@nx/angular:webpack-browser": {
       "cache": true,
       "dependsOn": ["^build"],
-      "inputs": [
-        "production",
-        "^production",
-        {
-          "env": "NX_MF_DEV_REMOTES"
-        }
-      ]
+      "inputs": ["production", "^production", { "env": "NX_MF_DEV_REMOTES" }]
     }
   },
   "generators": {
@@ -76,5 +50,6 @@
       "style": "css",
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "nxCloudUrl": "https://staging.nx.app"
 }
