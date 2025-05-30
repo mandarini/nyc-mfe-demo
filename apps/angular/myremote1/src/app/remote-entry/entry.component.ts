@@ -141,7 +141,7 @@ import { CommonModule } from '@angular/common';
 })
 export class RemoteEntryComponent {
   currentColor = '#e91e63';
-  currentMessage = 'HMR is AWESOME! 🔥';
+  currentMessage = 'LIVE DEMO - Changes instantly! ⚡';
   currentTime = new Date();
   
   private colors = [
