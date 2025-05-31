@@ -1,33 +1,55 @@
-# 🚀 Nx Module Federation Demo Cheatsheet
+# 🚀 Angular NYC Demo Cheat Sheet
 
-## Quick Start Commands
+## 🔥 Quick Start
 ```bash
-# HMR Demo
+# Start the demo app
 nx serve shell --devRemotes=myremote1
 
-# All Static
-nx serve shell
-
-# Multiple Dev Remotes  
-nx serve shell --devRemotes=myremote1,myremote2
-
-# Build Demo
-nx build shell
-nx affected:build
-
-# Visualization
-nx graph
+# Navigate to
+http://localhost:4200/myremote1
 ```
 
-## Demo Helper Script
-```bash
-# Interactive mode
-node demo-changes.js demo
+## ⚡ HMR Demo (2 min)
 
-# Manual changes
-node demo-changes.js apply 0    # Change message
-node demo-changes.js apply 1    # Change color  
-node demo-changes.js reset      # Reset all
+### **Manual Changes**
+1. **Edit**: `apps/angular/myremote1/src/app/remote-entry/entry.component.ts`
+2. **Change message**:
+   ```typescript
+   currentMessage = 'LIVE DEMO - Changes instantly! ⚡';
+   ```
+3. **Change color**:
+   ```typescript
+   color: #e91e63;
+   ```
+4. **Save** and watch instant updates!
+
+### **Key Points**
+- ✅ **No page refresh** - state preserved
+- ✅ **Cross-boundary HMR** - works across micro-frontends
+- ✅ **Zero configuration** - just works with `--devRemotes`
+
+## 🎯 Build Performance Demo (2 min)
+
+```bash
+# First build (cold)
+nx build shell
+
+# Second build (cached)
+nx build shell  # Near instant!
+
+# Show affected builds
+echo "// Updated" >> apps/angular/myremote2/src/app/remote-entry/entry.component.ts
+nx affected:build  # Only myremote2 rebuilds
+```
+
+### **Key Points**
+- ✅ **Smart caching** - reuse unchanged builds
+- ✅ **Affected builds** - only rebuild what changed
+- ✅ **Team sharing** - cache shared across developers
+
+## 🚨 Reset
+```bash
+git checkout .
 ```
 
 ## Key URLs
@@ -59,7 +81,6 @@ color: #e91e63;
 ## Troubleshooting
 ```bash
 # Reset everything
-node demo-changes.js reset
 git checkout .
 nx reset
 ```

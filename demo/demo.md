@@ -44,39 +44,17 @@ nx serve shell --devRemotes=myremote1
 2. **Click**: "🚀 Remote 1 (HMR Demo)"
 3. **Show the interactive component** (buttons, live clock)
 
-#### **Change 1: Update Message**
-- **File**: `apps/angular/myremote1/src/app/remote-entry/entry.component.ts`
-- **Change**: 
-  ```typescript
-  // From:
-  currentMessage = 'HMR is AWESOME! 🔥';
-  
-  // To:
-  currentMessage = 'LIVE DEMO - Changes instantly! ⚡';
-  ```
-- **Result**: Instant update, no page refresh, state preserved!
-
-#### **Change 2: Update Styles**
-- **Change**:
-  ```typescript
-  // From:
-  color: #1976d2;
-  
-  // To: 
-  color: #e91e63;
-  ```
-- **Result**: Header color changes instantly!
-
-#### **Automated Demo Helper**
-```bash
-# Interactive demo mode
-node demo-changes.js demo
-
-# Apply specific changes
-node demo-changes.js apply 0  # Change message
-node demo-changes.js apply 1  # Change color
-node demo-changes.js reset    # Reset everything
-```
+#### **Manual Demo**
+1. **Edit the file**: `apps/angular/myremote1/src/app/remote-entry/entry.component.ts`
+2. **Make changes**:
+   ```typescript
+   // Change message
+   currentMessage = 'LIVE DEMO - Changes instantly! ⚡';
+   
+   // Change color in styles
+   color: #e91e63;
+   ```
+3. **Save and watch**: Instant updates without page refresh!
 
 ### **Key Points**
 - ✅ **No page refresh** - component state preserved
@@ -280,11 +258,11 @@ nx g @nx/workspace:run-commands deploy --project=shell --command="echo 'Deployin
 ### **During the Demo**  
 - [ ] Use `nx serve shell --devRemotes=myremote1`
 - [ ] Have file explorer ready for quick edits
-- [ ] Use the demo helper script for automated changes
+- [ ] Make manual changes to demonstrate HMR
 - [ ] Keep terminal visible to show output
 
 ### **After the Demo**
-- [ ] Reset components: `node demo-changes.js reset`
+- [ ] Reset components: `git checkout .`
 - [ ] Stop all servers: `Ctrl+C`
 
 ---
@@ -300,7 +278,6 @@ nx g @nx/workspace:run-commands deploy --project=shell --command="echo 'Deployin
 ### **Demo Recovery**
 ```bash
 # Reset everything
-node demo-changes.js reset
 git checkout .
 nx reset
 npm install
@@ -344,3 +321,21 @@ npm install
 3. **Scale up**: Add more remotes and shared libraries
 4. **Production**: Set up CI/CD with Nx Cloud
 5. **Community**: Join the Nx Discord for support 
+
+## 📋 Demo Checklist
+
+### **Before Demo**
+- [ ] Clean git state: `git status`
+- [ ] Install deps: `npm install`
+- [ ] Clear cache: `nx reset`
+- [ ] Test build: `nx build shell`
+- [ ] Test serve: `nx serve shell --devRemotes=myremote1`
+
+### **During Demo**
+- [ ] Show HMR across micro-frontend boundaries
+- [ ] Demonstrate selective development mode
+- [ ] Show build caching and affected builds
+- [ ] Display dependency graph: `nx graph`
+
+### **After Demo**
+- [ ] Reset components: `git checkout .` 

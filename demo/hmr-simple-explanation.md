@@ -49,35 +49,21 @@ nx serve shell --devRemotes=myremote1
 
 ### What Our Demo Does
 
-#### **Option 1: Manual (Live Demo)**
+#### **Manual Demo (Live Editing)**
 1. Open `apps/angular/myremote1/src/app/remote-entry/entry.component.ts`
 2. Change line: `currentMessage = 'HMR is AWESOME! 🔥';`
 3. To: `currentMessage = 'LIVE DEMO - Changes instantly! ⚡';`
 4. Save file
 5. **Browser updates instantly** - no refresh, state preserved
 
-#### **Option 2: Automated Script**
-```bash
-node demo-changes.js apply 0  # Automatically edits the file
-```
-
 **What happens under the hood:**
-1. **Script writes** file to disk
+1. **File saves** to disk
 2. **Nx webpack** detects file change in remote1
 3. **Nx HMR pipeline** recompiles only remote1 module
 4. **Update sent** through shell's dev server WebSocket
 5. **Browser receives** HMR update
 6. **Component updates** in place within shell
 7. **State preserved** - clock keeps ticking, navigation intact
-
-### File Writing Process
-```javascript
-// demo-changes.js simplified
-let content = fs.readFileSync(componentPath, 'utf8');
-content = content.replace(/currentMessage = '[^']*';/, "currentMessage = 'LIVE DEMO!';");
-fs.writeFileSync(componentPath, content);
-// ↑ This triggers Nx's HMR pipeline automatically
-```
 
 ## Demo Flow for Audience
 
