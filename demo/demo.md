@@ -322,6 +322,22 @@ npm install
 4. **Production**: Set up CI/CD with Nx Cloud
 5. **Community**: Join the Nx Discord for support 
 
+## 🙏 Credits
+
+**Huge shoutout to [Colum Ferry](https://github.com/Coly010)** - the brilliant mind behind Nx's Module Federation integrations and plugins. The seamless MFE development experience showcased in this demo is thanks to his exceptional work!
+
+**Special thanks to [Leosvel Pérez Espinosa](https://github.com/leosvelperez)** - who is collaborating with Colum on the groundbreaking [`@nx/angular-rspack`](https://github.com/nrwl/angular-rspack) package. This integration will revolutionize Angular + Nx builds with Rspack's blazing-fast performance!
+
+## 🚀 What's Coming Next: Rspack Demo
+
+This demo will soon be enhanced with **@nx/angular-rspack** showcasing:
+- ⚡ Lightning-fast builds with Rspack
+- 🔥 Enhanced HMR performance across micro-frontends
+- 🎯 Zero-config Rspack integration with Nx
+- 🚀 Next-generation developer experience
+
+Stay tuned for the Rspack additions to this demo!
+
 ## 📋 Demo Checklist
 
 ### **Before Demo**

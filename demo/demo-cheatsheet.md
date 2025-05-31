@@ -90,3 +90,10 @@ nx reset
 - ✅ **Selective development** mode
 - ✅ **Smart caching** across team
 - ✅ **Zero configuration** setup 
+
+## 🙏 Credits
+
+**[Colum Ferry](https://github.com/Coly010)** - Nx Module Federation integrations & plugins  
+**[Leosvel Pérez Espinosa](https://github.com/leosvelperez)** - @nx/angular-rspack collaboration
+
+🚀 **Coming Soon**: Rspack integration demo! 

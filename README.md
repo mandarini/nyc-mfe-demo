@@ -3,6 +3,8 @@
 > 🚀 **Welcome to the Nx Module Federation demo!**  
 > This repo showcases how Nx simplifies micro-frontend development workflows.
 
+> 🙌 **Special shoutout to [Colum Ferry](https://github.com/Coly010)** - the wizard behind Nx's Module Federation magic!
+
 ## 🎯 What's This Demo About?
 
 **The Context:** Traditional Module Federation setup requires manual configuration of multiple dev servers, webpack configs, and coordinating HMR across boundaries. It works well, but involves more setup steps.
@@ -221,6 +223,20 @@ After your demo, the audience should understand:
 ## 💝 Special Thanks
 
 **To Angular NYC** for being an awesome community that appreciates good developer tooling!
+
+**Special shoutout to [Colum Ferry](https://github.com/Coly010)** - my brilliant colleague who builds the Module Federation integrations and plugins for Nx. The seamless MFE experience you see in this demo is thanks to his incredible work!
+
+**Also huge thanks to [Leosvel Pérez Espinosa](https://github.com/leosvelperez)** - who is collaborating with Colum on the exciting new [`@nx/angular-rspack`](https://github.com/nrwl/angular-rspack) package. This integration will bring the lightning-fast Rspack bundler to Angular + Nx workflows!
+
+## 🚀 Coming Soon: Rspack Integration
+
+This demo will soon showcase the **@nx/angular-rspack** package created by Colum and enhanced by Leosvel. Get ready for:
+- ⚡ **Blazing fast builds** with Rspack
+- 🔥 **Even faster HMR** across micro-frontends  
+- 🎯 **Seamless Nx integration** with zero config
+- 🚀 **Next-level developer experience**
+
+Stay tuned for the Rspack demo additions!
 
 ## 🎉 Ready to Blow Some Minds?
 
