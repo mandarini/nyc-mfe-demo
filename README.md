@@ -25,7 +25,7 @@
 └─────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────┐
-│            Shell2 App (Rspack) ⚡       │  ← Host Application (4300)
+│            Shell2 App (Rspack)          │  ← Host Application (4300)
 │  ┌─────────────┐ ┌─────────────┐       │
 │  │ RS Remote 1 │ │ RS Remote 2 │       │
 │  │  (Rspack)   │ │  (Rspack)   │       │
@@ -55,8 +55,8 @@
 - ✅ **Selective development mode** (work on what matters)
 - ✅ **Zero-configuration setup** for both bundlers
 - ✅ **Build caching and performance**
-- ✅ **Lightning-fast Rspack builds** ⚡
-- ✅ **Side-by-side comparison** of Webpack vs Rspack performance
+- ✅ **Rspack builds**
+- ✅ **Side-by-side comparison** of Webpack vs Rspack
 - ✅ **Automated demo helper script**
 
 ## 🚀 Quick Start
@@ -88,10 +88,10 @@ nx serve shell --devRemotes=myremote1
 
 **Open:** `http://localhost:4200`
 
-#### **Option 2: Rspack-based (Lightning Fast)** ⚡
+#### **Option 2: Rspack-based** ⚡
 
 ```bash
-# The NEW magic - Same HMR, but with Rspack speed!
+# The NEW magic - Same HMR, but with Rspack!
 nx serve shell2
 ```
 
@@ -117,7 +117,7 @@ nx serve shell2 --devRemotes=rsremote1
 # Nx handles:
 ✅ Automatic Rspack configuration
 ✅ MFE boundary coordination
-✅ Lightning-fast HMR pipeline
+✅ HMR pipeline
 ✅ Zero webpack.config.js files needed
 ✅ Integrated build optimization
 ```
@@ -130,10 +130,10 @@ nx serve shell2 --devRemotes=rsremote1
 2. **Navigate to**: `http://localhost:4200/myremote1`
 3. **Edit**: `apps/angular/myremote1/src/app/remote-entry/entry.component.ts`
 
-### **Rspack Demo (Lightning Fast)** ⚡
+### **Rspack Demo** ⚡
 
 1. **Start**: `nx serve shell2`
-2. **Navigate to**: `http://localhost:4200`
+2. **Navigate to**: `http://localhost:4300`
 3. **See**: Loading time displayed in the header
 
 **Note**: Rspack demo focuses on build/startup performance rather than HMR across remotes.
@@ -142,7 +142,7 @@ nx serve shell2 --devRemotes=rsremote1
 
 ### **🔥 Visual Performance Comparison**
 
-> **"Let's compare the same MFE setup with Webpack vs Rspack. Watch the loading times in the browser!"**
+> **"Let's compare the same MFE setup with Webpack vs Rspack."**
 
 **Steps:**
 
@@ -163,9 +163,9 @@ nx serve shell2 --devRemotes=rsremote1
 
 3. **Compare the loading times displayed in both apps side-by-side**
 
-_"Same developer experience, same architecture benefits, but Rspack loads faster"_
+_"Same developer experience, same architecture benefits, both using modern bundlers"_
 
-### **🎯Build Performance Showdown**
+### **🎯 Build Performance Comparison**
 
 ```bash
 # Webpack build
@@ -186,9 +186,9 @@ nx graph
 
 ### **The Rspack Story**
 
-- _"Rspack is a Rust-based bundler that's webpack-compatible but 5-10x faster"_
+- _"Rspack is a Rust-based bundler that's webpack-compatible"_
 - _"With Nx, switching from Webpack to Rspack is practically effortless"_
-- _"You get the same Module Federation architecture with dramatically better performance"_
+- _"You get the same Module Federation architecture with a modern bundler"_
 
 ### **The Nx Value Proposition**
 
@@ -226,7 +226,7 @@ nx graph
 
 1. **Module Federation HMR works seamlessly** with both Webpack and Rspack
 2. **Nx eliminates bundler configuration complexity** for both options
-3. **Rspack provides significant performance benefits** with zero config overhead
+3. **Rspack provides a modern bundling alternative** with zero config overhead
 4. **Migration between bundlers is trivial** when using Nx
 5. **Developer productivity benefits** are maintained regardless of bundler choice
 
@@ -254,19 +254,18 @@ nx serve shell --devRemotes=myremote1
 # Navigate to http://localhost:4200
 ```
 
-### **Try Rspack (Lightning Fast):** ⚡
+### **Try Rspack:** ⚡
 
 ```bash
 nx serve shell2
 # Navigate to http://localhost:4300
-# Feel the speed difference! ✨
 ```
 
-**Remember**: The goal is to show how Nx **streamlines the micro-frontend development workflow** while making it trivial to leverage the performance benefits of modern bundlers like Rspack!
+**Remember**: The goal is to show how Nx **streamlines the micro-frontend development workflow** while making it trivial to leverage modern bundlers like Rspack!
 
 ## 📊 Performance Measurement Tools
 
-Want to see the speed difference in action? The apps now show loading times directly in the UI!
+Want to compare the bundlers in action? The apps show loading times directly in the UI!
 
 ### **🚀 Simple Visual Demo - Side by Side**
 
