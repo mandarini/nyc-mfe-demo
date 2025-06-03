@@ -101,9 +101,7 @@ nx serve shell --devRemotes=myremote1
 ✅ Integrated build caching
 ```
 
-### **Live Demo Options**
-
-#### **Manual Demo**
+## **Live Demo**
 
 1. **Start the app**: `nx serve shell --devRemotes=myremote1`
 2. **Navigate to**: `http://localhost:4200/myremote1`
@@ -186,6 +184,7 @@ nx graph
 
 - Ensure you're using `--devRemotes=myremote1`
 - Check that the component file is actually changing
+- Clear browser cache
 - Verify no console errors in browser
 - Try: `nx reset` to clear cache
 
@@ -205,16 +204,7 @@ After your demo, the audience should understand:
 4. **The developer productivity benefits** - faster iteration cycles
 5. **When each approach makes sense** - Nx for teams wanting less config overhead
 
-## 🔗 What's Next?
-
-### **Advanced Explorations**
-
-- Set up Nx Cloud for team caching
-- Add shared libraries between remotes
-- Explore production deployment patterns
-- **Try Rspack integration** (coming next!)
-
-### **Resources**
+## **Resources**
 
 - [Nx Documentation](https://nx.dev)
 - [Module Federation Guide](https://nx.dev/concepts/module-federation)
@@ -228,17 +218,7 @@ After your demo, the audience should understand:
 
 **Also huge thanks to [Leosvel Pérez Espinosa](https://github.com/leosvelperez)** - who is collaborating with Colum on the exciting new [`@nx/angular-rspack`](https://github.com/nrwl/angular-rspack) package. This integration will bring the lightning-fast Rspack bundler to Angular + Nx workflows!
 
-## 🚀 Coming Soon: Rspack Integration
-
-This demo will soon showcase the **@nx/angular-rspack** package created by Colum and enhanced by Leosvel. Get ready for:
-- ⚡ **Blazing fast builds** with Rspack
-- 🔥 **Even faster HMR** across micro-frontends  
-- 🎯 **Seamless Nx integration** with zero config
-- 🚀 **Next-level developer experience**
-
-Stay tuned for the Rspack demo additions!
-
-## 🎉 Ready to Blow Some Minds?
+## 🎉 Ready to see some hot reloads?
 
 ```bash
 nx serve shell --devRemotes=myremote1
