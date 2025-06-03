@@ -23,6 +23,15 @@
       ],
       "myremote3/Routes": [
         "apps/angular/myremote3/src/app/remote-entry/entry.routes.ts"
+      ],
+      "rsremote1/Routes": [
+        "apps/angular/rsremote1/src/app/remote-entry/entry.routes.ts"
+      ],
+      "rsremote2/Routes": [
+        "apps/angular/rsremote2/src/app/remote-entry/entry.routes.ts"
+      ],
+      "rsremote3/Routes": [
+        "apps/angular/rsremote3/src/app/remote-entry/entry.routes.ts"
       ]
     }
   },
