@@ -41,6 +41,7 @@
       }
     },
     "serve": {
+      "dependsOn": ["shell2:serve"],
       "options": {
         "port": 4206
       }
