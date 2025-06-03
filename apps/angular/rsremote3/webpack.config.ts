@@ -1,7 +1,7 @@
 import {
   NxModuleFederationPlugin,
   NxModuleFederationDevServerPlugin,
-} from '@nx/module-federation/rspack';
+} from '@nx/module-federation/angular';
 import config from './module-federation.config';
 
 /**
