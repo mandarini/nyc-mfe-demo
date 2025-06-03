@@ -6,74 +6,6 @@
   "sourceRoot": "apps/angular/rsremote1/src",
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nx/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/angular/rsremote1",
-        "index": "apps/angular/rsremote1/src/index.html",
-        "main": "apps/angular/rsremote1/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/angular/rsremote1/tsconfig.app.json",
-        "assets": [
-          {
-            "glob": "**/*",
-            "input": "apps/angular/rsremote1/public"
-          }
-        ],
-        "styles": ["apps/angular/rsremote1/src/styles.css"],
-        "scripts": [],
-        "customWebpackConfig": {
-          "path": "apps/angular/rsremote1/webpack.config.ts"
-        }
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "4kb",
-              "maximumError": "8kb"
-            }
-          ],
-          "outputHashing": "all",
-          "customWebpackConfig": {
-            "path": "apps/angular/rsremote1/webpack.prod.config.ts"
-          }
-        },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "continuous": true,
-      "executor": "@nx/angular:dev-server",
-      "options": {
-        "port": 4204,
-        "publicHost": "http://localhost:4204"
-      },
-      "configurations": {
-        "production": {
-          "buildTarget": "rsremote1:build:production"
-        },
-        "development": {
-          "buildTarget": "rsremote1:build:development"
-        }
-      },
-      "defaultConfiguration": "development"
-    },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
@@ -106,6 +38,11 @@
         "production": {
           "buildTarget": "rsremote1:build:production"
         }
+      }
+    },
+    "serve": {
+      "options": {
+        "port": 4204
       }
     }
   }
