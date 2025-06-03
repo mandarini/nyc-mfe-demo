@@ -28,7 +28,7 @@
       "defaultConfiguration": "production",
       "options": {
         "buildTarget": "rsremote3:build",
-        "port": 4206,
+        "port": 4303,
         "watch": false
       },
       "configurations": {
@@ -43,7 +43,7 @@
     "serve": {
       "dependsOn": ["shell2:serve"],
       "options": {
-        "port": 4206
+        "port": 4303
       }
     }
   }
