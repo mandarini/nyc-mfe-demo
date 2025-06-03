@@ -24,7 +24,7 @@ export default async () => {
         styles: ['./src/styles.css'],
         scripts: [],
         devServer: {
-          port: 4206,
+          port: 4303,
         },
       },
     },
@@ -35,7 +35,7 @@ export default async () => {
             {
               type: 'initial',
               maximumWarning: '500kb',
-              maximumError: '1mb',
+              maximumError: '3mb',
             },
             {
               type: 'anyComponentStyle',

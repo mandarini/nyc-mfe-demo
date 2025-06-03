@@ -92,7 +92,7 @@ nx serve shell --devRemotes=myremote1
 
 ```bash
 # The NEW magic - Same HMR, but with Rspack speed!
-nx serve shell2 --devRemotes=rsremote1
+nx serve shell2
 ```
 
 **Open:** `http://localhost:4300`
@@ -122,17 +122,9 @@ nx serve shell2 --devRemotes=rsremote1
 ✅ Integrated build optimization
 ```
 
-### **Performance Comparison**
+## 🔥 Demos
 
-| Task             | Webpack | Rspack | Improvement     |
-| ---------------- | ------- | ------ | --------------- |
-| Cold Start       | ~15s    | ~3s    | **5x faster**   |
-| Hot Reload       | ~2s     | ~200ms | **10x faster**  |
-| Production Build | ~45s    | ~8s    | **5.6x faster** |
-
-## 🔥 The HMR Demo (The Star of the Show)
-
-### **Webpack Demo (Traditional)**
+### **Webpack Demo with HMR**
 
 1. **Start**: `nx serve shell --devRemotes=myremote1`
 2. **Navigate to**: `http://localhost:4200/myremote1`
@@ -148,38 +140,32 @@ nx serve shell2 --devRemotes=rsremote1
 
 ## 🎬 Demo Scenarios
 
-### **🔥 Scenario 1: Visual Performance Comparison (3 minutes)**
+### **🔥 Visual Performance Comparison**
 
 > **"Let's compare the same MFE setup with Webpack vs Rspack. Watch the loading times in the browser!"**
 
 **Steps:**
 
-1. **Start Webpack app with HMR:**
+1. **Start both apps simultaneously:**
+
    ```bash
+   # Terminal 1: Webpack with HMR
    nx serve shell --devRemotes=myremote1
-   # Shows loading time in browser header
-   ```
 
-2. **Start Rspack app:**
-   ```bash
+   # Terminal 2: Rspack
    nx serve shell2
-   # Shows loading time in browser header
    ```
 
-3. **Compare the loading times displayed in both apps**
+2. **Open both in browser:**
 
-**Money quote**: _"Same developer experience, same architecture benefits, but Rspack loads faster"_
+   - Webpack: `http://localhost:4200`
+   - Rspack: `http://localhost:4300`
 
-### **⚡ Scenario 2: Zero Config Magic (2 minutes)**
+3. **Compare the loading times displayed in both apps side-by-side**
 
-```bash
-# Show the project structure - no rspack configs needed!
-tree apps/angular/rsremote1 -I node_modules
-```
+_"Same developer experience, same architecture benefits, but Rspack loads faster"_
 
-**Message**: _"Notice: No rspack.config.js files anywhere. Nx handles it all!"_
-
-### **🎯 Scenario 3: Build Performance Showdown (2 minutes)**
+### **🎯Build Performance Showdown**
 
 ```bash
 # Webpack build
@@ -188,18 +174,15 @@ time nx build shell
 # Rspack build
 time nx build shell2
 
-# Show the dramatic difference!
 ```
 
-### **🏗️ Scenario 4: Dependency Graph (30 seconds)**
+### **🏗️ Dependency Graph**
 
 ```bash
 nx graph
 ```
 
-**Message**: _"Same dependency graph, different bundler - Nx abstracts the complexity"_
-
-## 🎯 Key Talking Points for Angular NYC
+## 🎯 Key Talking Points
 
 ### **The Rspack Story**
 
@@ -222,23 +205,24 @@ nx graph
 ## 🚨 Troubleshooting
 
 ### **Webpack Apps (shell, myremote\*):**
+
 - Ensure you're using `--devRemotes=myremote1`
 - Port 4200-4203 should be available
 - Try: `nx serve shell` (without devRemotes) first
 
 ### **Rspack Apps (shell2, rsremote\*):**
-- Just use: `nx serve shell2` (no --devRemotes needed)
-- Port 4200 should be available  
+
+- Just use: `nx serve shell2`
+- Port 4300-4303 should be available
 - If issues: `nx reset` and try again
 
 ### **General Issues:**
+
 - Check browser console for errors
 - Clear browser cache
 - Run: `npm install` to ensure dependencies
 
-## 📊 Demo Success Metrics
-
-After your demo, the audience should understand:
+## 📊 Key takeaways
 
 1. **Module Federation HMR works seamlessly** with both Webpack and Rspack
 2. **Nx eliminates bundler configuration complexity** for both options
@@ -261,9 +245,9 @@ After your demo, the audience should understand:
 
 **Also huge thanks to [Leosvel Pérez Espinosa](https://github.com/leosvelperez)** - who is collaborating with Colum on the exciting new [`@nx/angular-rspack`](https://github.com/nrwl/angular-rspack) package. This integration brings the lightning-fast Rspack bundler to Angular + Nx workflows with zero configuration!
 
-## 🎉 Ready to see some blazing fast hot reloads?
+## 🎉 Ready to see some hot reloads?
 
-### **Try Webpack (Traditional):**
+### **Try Webpack:**
 
 ```bash
 nx serve shell --devRemotes=myremote1
@@ -274,7 +258,7 @@ nx serve shell --devRemotes=myremote1
 
 ```bash
 nx serve shell2
-# Navigate to http://localhost:4200
+# Navigate to http://localhost:4300
 # Feel the speed difference! ✨
 ```
 
@@ -284,32 +268,22 @@ nx serve shell2
 
 Want to see the speed difference in action? The apps now show loading times directly in the UI!
 
-### **🚀 Simple Visual Demo**
+### **🚀 Simple Visual Demo - Side by Side**
+
 ```bash
-# Start Webpack demo (with HMR)
+# Terminal 1: Start Webpack demo (with HMR)
 nx serve shell --devRemotes=myremote1
 # Open: http://localhost:4200
-# Shows: "📦 Webpack - Loaded in: XXXms"
 
-# Start Rspack demo (basic)  
+# Terminal 2: Start Rspack demo (simultaneously!)
 nx serve shell2
-# Open: http://localhost:4200
-# Shows: "⚡ Rspack - Loaded in: XXXms"
+# Open: http://localhost:4300
 ```
 
-**Perfect for live demos:** The loading time is displayed right in the browser header - your audience can see the speed difference immediately!
+### **⏱️ For Terminal Timing**
 
-### **⏱️ For Terminal Timing (Optional)**
 ```bash
 # Compare build times
 time nx build shell    # Webpack build
 time nx build shell2   # Rspack build
-
-# Compare startup times
-time nx serve shell --devRemotes=myremote1
-time nx serve shell2
 ```
-
-## 🔥 The HMR Demo (The Star of the Show)
-
-_Made with ❤️ for Angular NYC_
