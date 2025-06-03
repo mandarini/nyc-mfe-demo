@@ -1,7 +1,25 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="rsremote1">Rsremote1</a></li>
-  <li><a routerLink="rsremote2">Rsremote2</a></li>
-  <li><a routerLink="rsremote3">Rsremote3</a></li>
-</ul>
-<router-outlet></router-outlet>
+<div class="shell-container">
+  <header class="shell-header">
+    <h1>⚡ Shell2 Application - Rspack Demo</h1>
+    <p>Host application with lightning-fast Rspack bundler</p>
+    
+    <!-- Performance Metrics -->
+    <div class="performance-metrics">
+      <div class="metric-badge rspack">
+        <span class="bundler">⚡ Rspack</span>
+        <span class="load-time">🚀 Loaded in: {{ loadTime }}ms</span>
+      </div>
+    </div>
+  </header>
+  
+  <nav class="remote-menu">
+    <a routerLink="/" class="menu-item">🏠 Home</a>
+    <a routerLink="rsremote1" class="menu-item">🚀 RS Remote 1</a>
+    <a routerLink="rsremote2" class="menu-item">⚡ RS Remote 2</a>
+    <a routerLink="rsremote3" class="menu-item">🎯 RS Remote 3</a>
+  </nav>
+  
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>
