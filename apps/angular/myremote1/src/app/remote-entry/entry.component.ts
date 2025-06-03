@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
         <div class="color-box" [style.background]="currentColor">
           <h2>{{ currentMessage }}</h2>
           <p>Current Time: {{ currentTime | date:'medium' }}</p>
+          <p class="change-counter">Changes made: {{ changeCounter }}</p>
         </div>
         
         <div class="actions">
@@ -24,6 +25,9 @@ import { CommonModule } from '@angular/common';
           <button (click)="updateMessage()" class="demo-button">
             Update Message
           </button>
+          <button (click)="resetState()" class="demo-button reset">
+            Reset State
+          </button>
         </div>
         
         <div class="info-panel">
@@ -32,7 +36,12 @@ import { CommonModule } from '@angular/common';
             <li>Start with: <code>nx serve shell --devRemotes=myremote1</code></li>
             <li>Make changes to this component</li>
             <li>Watch for instant updates without page refresh!</li>
+            <li>Notice how state persists through changes!</li>
           </ol>
+          <div class="status-indicator">
+            <span class="status-dot" [class.active]="isHmrActive"></span>
+            HMR Status: {{ isHmrActive ? 'Active' : 'Inactive' }}
+          </div>
         </div>
       </div>
     </div>
@@ -87,10 +96,18 @@ import { CommonModule } from '@angular/common';
       margin-bottom: 1rem;
     }
     
+    .change-counter {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+    
     .actions {
       display: flex;
       gap: 1rem;
       justify-content: center;
+      flex-wrap: wrap;
     }
     
     .demo-button {
@@ -108,6 +125,10 @@ import { CommonModule } from '@angular/common';
     .demo-button:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+    }
+    
+    .demo-button.reset {
+      background: linear-gradient(45deg, #ff5722, #ff8a65);
     }
     
     .info-panel {
@@ -137,13 +158,37 @@ import { CommonModule } from '@angular/common';
     .info-panel li {
       margin-bottom: 0.5rem;
     }
+    
+    .status-indicator {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ccc;
+      transition: background-color 0.3s ease;
+    }
+    
+    .status-dot.active {
+      background: #4caf50;
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
   `]
 })
-export class RemoteEntryComponent {
+export class RemoteEntryComponent implements OnInit, OnDestroy {
   currentColor = '#e91e63';
   currentMessage = 'LIVE DEMO - Changes instantly! ⚡';
   currentTime = new Date();
+  changeCounter = 0;
+  isHmrActive = false;
   
+  private timeInterval: any;
   private colors = [
     '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', 
     '#2196f3', '#00bcd4', '#009688', '#4caf50',
@@ -162,22 +207,94 @@ export class RemoteEntryComponent {
     'Zero Downtime Dev! 💪'
   ];
   
-  constructor() {
+  ngOnInit() {
+    // Load persisted state
+    this.loadState();
+    
+    // Check for HMR support
+    this.checkHmrStatus();
+    
     // Update time every second to show the component is live
-    setInterval(() => {
+    this.timeInterval = setInterval(() => {
       this.currentTime = new Date();
     }, 1000);
+    
+    // Increment change counter to track HMR effectiveness
+    this.changeCounter++;
+    this.saveState();
+  }
+  
+  ngOnDestroy() {
+    if (this.timeInterval) {
+      clearInterval(this.timeInterval);
+    }
   }
   
   changeColor() {
     const currentIndex = this.colors.indexOf(this.currentColor);
     const nextIndex = (currentIndex + 1) % this.colors.length;
     this.currentColor = this.colors[nextIndex];
+    this.changeCounter++;
+    this.saveState();
   }
   
   updateMessage() {
     const currentIndex = this.messages.indexOf(this.currentMessage);
     const nextIndex = (currentIndex + 1) % this.messages.length;
     this.currentMessage = this.messages[nextIndex];
+    this.changeCounter++;
+    this.saveState();
+  }
+  
+  resetState() {
+    this.currentColor = this.colors[0];
+    this.currentMessage = this.messages[0];
+    this.changeCounter = 0;
+    this.clearState();
+  }
+  
+  private loadState() {
+    try {
+      const savedState = localStorage.getItem('myremote1-demo-state');
+      if (savedState) {
+        const state = JSON.parse(savedState);
+        this.currentColor = state.currentColor || this.currentColor;
+        this.currentMessage = state.currentMessage || this.currentMessage;
+        this.changeCounter = state.changeCounter || 0;
+      }
+    } catch (error) {
+      console.warn('Failed to load state from localStorage:', error);
+    }
+  }
+  
+  private saveState() {
+    try {
+      const state = {
+        currentColor: this.currentColor,
+        currentMessage: this.currentMessage,
+        changeCounter: this.changeCounter
+      };
+      localStorage.setItem('myremote1-demo-state', JSON.stringify(state));
+    } catch (error) {
+      console.warn('Failed to save state to localStorage:', error);
+    }
+  }
+  
+  private clearState() {
+    try {
+      localStorage.removeItem('myremote1-demo-state');
+    } catch (error) {
+      console.warn('Failed to clear state from localStorage:', error);
+    }
+  }
+  
+  private checkHmrStatus() {
+    // Check if we're in development mode and if webpack HMR is available
+    this.isHmrActive = typeof window !== 'undefined' && 
+                      (
+                        !!(window as any).__webpack_hmr_runtime__ ||
+                        typeof (window as any).webpackHotUpdate === 'function' ||
+                        !!(window as any).module?.hot
+                      );
   }
 }
